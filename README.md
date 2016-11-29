@@ -1,6 +1,6 @@
 # Apex Rumble
 
-Apex Rumble is an abstraction between Salesforce's object schema and your code.
+Apex Rumble is an abstraction between Salesforce's object schema and your Apex code.
 
 ## How Does It Work?
 
@@ -9,11 +9,23 @@ Apex Rumble is an abstraction between Salesforce's object schema and your code.
 
 The `RumbleModel` class serves as the base class for all RumbleModels, and it contains method signatures that redirect to the standard SObject method signatures.
 
+```
+RumbleModel
+├─ RumbleAccount (generated from Account)
+│  └─ MAccount
+├─ RumbleAsset (generated from Asset)
+|  └─ MAsset
+├─ RumbleContact (generated from Contact)
+|  └─ MContact
+└─ RumbleProject (generated from Project__c)
+|  └─ MProject
+```
+
 ### RumbleModels
 
 e.g.
 - `RumbleContact`
-- `RumbleMyCustomObject`
+- `RumbleProject`
 - `Rumble*`
 
 RumbleModels are a generated set of (virtual) model classes that are based off of your Salesforce schema: you configure an object and field subscription and your RumbleModels are generated off of that.
@@ -23,6 +35,11 @@ Rumble models contain a class property for each subcribed SObject field, and emp
 By using RumbleModels, your apex code does not need to explicitly reference your Salesforce Schema by API name, which empowers developers to refactor their Salesforce schema.
 
 ### Models
+
+e.g.
+- `MContact`
+- `MProject`
+- `M*`
 
 RumbleModels are volatile - meaning that they are intended to be regenerated over and over as your schema changes.
 
