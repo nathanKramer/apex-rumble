@@ -18,7 +18,7 @@ public virtual with sharing class RumbleModel {
      * @author Nathan
      * @return SObject the sObject being decorated
      */
-    public SObject toSObject() {
+    public SObject getSObject() {
         return this.record;
     }
 
@@ -30,10 +30,10 @@ public virtual with sharing class RumbleModel {
      * @param List<RumbleModel> models : the models you need SObjects for
      * @return List<SObject> the list of sobjects
      */
-    public static List<SObject> toSObject(List<RumbleModel> models) {
+    public static List<SObject> getSObject(List<RumbleModel> models) {
         List<SObject> sObjects = new List<SObject>();
         for (RumbleModel model : models) {
-            sObjects.add(model.toSObject());
+            sObjects.add(model.getSObject());
         }
         return sObjects;
     }
