@@ -1,3 +1,14 @@
+/.bundle/
+/.yardoc
+/Gemfile.lock
+/_yardoc/
+/coverage/
+/doc/
+/pkg/
+/spec/reports/
+/tmp/
+
+
 #OSX-specific exclusions
 .[dD][sS]_[sS]tore
 
