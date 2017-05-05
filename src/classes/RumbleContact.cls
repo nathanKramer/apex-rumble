@@ -6,8 +6,14 @@
  * @date: 28th November 2016
  */
 public virtual with sharing class RumbleContact extends RumbleModel {
-    public RumbleContact(Contact c) {
-        super(c);
+
+    public RumbleContact() {
+        super('Contact');
+    }
+
+    public RumbleContact(SObject record) {
+        super(record);
+        RumbleModel.validate(record, 'Contact');
     }
 
     // Below I have implemented a few fields to illustrate the concept

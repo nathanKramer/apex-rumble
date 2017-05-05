@@ -5,7 +5,9 @@
 		<members>RumbleDB</members>
 		<members>RumbleContact</members>
 		<members>MContact</members>
+		<members>RumbleQuery</members>
+		<members>Rumble</members>
 		<name>ApexClass</name>
 	</types>
-	<version>34.0</version>
+	<version>38.0</version>
 </Package>

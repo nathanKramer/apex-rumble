@@ -7,8 +7,29 @@
 public virtual with sharing class RumbleModel {
     private SObject record;
 
+    public RumbleModel(Schema.SObjectType objectType) {
+        this.record = objectType.newSObject();
+    }
+
+    public RumbleModel(String objectType) {
+        this(Rumble.OBJECTS.get(objectType));
+    }
+
     public RumbleModel(SObject sObj) {
         this.record = sObj;
+    }
+
+    public static void validate(SObject record, String expectedType) {
+        // Used internally by rumble so that validation is done in one place.
+        String actualType = record.getSObjectType().getDescribe().getName();
+        if (record.getSObjectType().getDescribe().getName() != expectedType) {
+            throw new Rumble.InvalidObjectException(
+                'Tried to create a Rumble ' + 
+                expectedType + 
+                ', but got given a ' +
+                actualType
+            );
+        }
     }
 
     /**
