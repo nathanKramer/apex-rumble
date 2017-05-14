@@ -39,7 +39,7 @@ module ApexRumble
     ]
 
     apex_classes = []
-    FileUtils::mkdir_p ApexRumble.output_dir
+    FileUtils::mkdir_p "#{ApexRumble.output_dir}/classes"
     staticClasses = Dir.glob("#{ApexRumble.source_dir}/api/*.cls")
     staticClasses.each { |file_name|
       content = IO.read(file_name)
