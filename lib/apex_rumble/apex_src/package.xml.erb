@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	<types><% apex_classes.each do |apex_class| %>
+		<members><%= apex_class.name %></members><% end %>
+		<name>ApexClass</name>
+	</types>
+	<version>38.0</version>
+</Package>

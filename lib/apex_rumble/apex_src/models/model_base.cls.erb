@@ -1,0 +1,31 @@
+/**
+ * Rumble<%= record.class_name %>.cls
+ * Description: Base Model object for <%= record.api_name %>
+ * Warning! This is a generated class!
+ * @author: Apex Rumble
+ */
+public virtual with sharing class Rumble<%= record.class_name %> extends RumbleModel {
+
+	public Rumble<%= record.class_name %>() {
+		super('<%= record.api_name %>');
+	}
+
+	public Rumble<%= record.class_name %>(SObject record) {
+		super(record);
+		RumbleModel.validate(record, '<%= record.api_name %>');
+	}
+
+	// Fields as properties
+<% record.fields.each do |field| %>
+	public <%= "#{field.type} #{field.property_name}" %> {
+		get {
+			<%= "return (#{field.type}) this.get('#{ field.name }');" %>
+		}<% if field.writeable? %>
+		set {
+			<%= "this.put('#{ field.name }', value);" %>
+		}<% else %>
+		private set;
+<% end %>
+	}
+<% end %>
+}
