@@ -30,7 +30,8 @@ module ApexRumble
     records = [
       ApexRumble::SObject.new('Contact', [
         CustomField.new('Id', 'Id', true),
-        CustomField.new('Name', 'String', true)
+        CustomField.new('Name', 'String', true),
+        CustomField.new('Email', 'String', true)
       ]),
       ApexRumble::SObject.new('My_Custom_ObjectWith_Crappy_Naming__c', [
         CustomField.new('Id', 'Id', true),
@@ -67,7 +68,7 @@ module ApexRumble
 
       compiler = ERB.new(templates[:model])
       result = compiler.result(binding)
-      apex_classes.push(ApexClass.new("Rumble#{record.class_name}", result))
+      apex_classes.push(ApexClass.new("M#{record.class_name}", result))
     }
 
     apex_classes.each do |apex_class|

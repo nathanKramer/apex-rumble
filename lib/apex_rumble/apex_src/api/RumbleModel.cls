@@ -1,6 +1,9 @@
 /**
  * RumbleModel
- * Description:
+ * Description: Base class for all rumble models.
+ * This is very simple!
+ * We merely wrap the standard SObject and redirect methods to it.
+ * This is a sneaky way of allowing us to "extend" SObject behaviour without having it truly available as a virtual class.
  * @author: Nathan
  * @date: 29 November 2016
  */

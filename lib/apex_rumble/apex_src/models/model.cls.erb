@@ -1,61 +1,46 @@
 /**
- * MContact.cls
- * Description: The class that you would customize
- * The M prefeix is obviously kinda ugly,
- * The intention is that, without being able to structure code in folders, we at least want models to be in the same place.
- * The Rumble prefix is dispatched with because Rumble files will largely be generated base classes that shouldn't be messed with
- * @author: Nathan
+ * M<%= record.class_name %>.cls
+ * Description: Model object and database interaction layer for <%= record.api_name %>
+ * @author: Apex Rumble
  * @date: 28th November
  */
-public with sharing class MContact extends RumbleContact {
+public with sharing class M<%= record.class_name %> extends Rumble<%= record.class_name %> {
 
-	public MContact() {
+	public M<%= record.class_name %>() {
 		super();
 	}
 
-	public MContact(SObject c) {
+	public M<%= record.class_name %>(SObject c) {
 		super(c);
 	}
 
-	public static List<MContact> decorate(List<SObject> contacts) {
-		List<MContact> mContacts = new List<MContact>();
-		for (SObject c : contacts) {
-			mContacts.add(new MContact(c));
+	public static List<M<%= record.class_name %>> decorate(List<SObject> records) {
+		List<M<%= record.class_name %>> m<%= record.class_name %>s = new List<M<%= record.class_name %>>();
+		for (SObject c : records) {
+			m<%= record.class_name %>s.add(new M<%= record.class_name %>(c));
 		}
-		return mContacts;
+		return m<%= record.class_name %>s;
 	}
 
 	public static RumbleQuery find() {
-		return new RumbleQuery().find('Contact');
+		return new RumbleQuery().find('<%= record.api_name %>');
 	}
 
 	// --------------
 	// Select Methods
 	// --------------
 
-	public static List<MContact> getById(Set<Id> contactIds) {
+	public static List<M<%= record.class_name %>> getById(Set<Id> recordIds) {
 		List<SObject> records = Database.query(
-			MContact.find()
-				.filterBy('Id IN :contactIds')
+			M<%= record.class_name %>.find()
+				.filterBy('Id IN :recordIds')
 				.toSOQL()
 		);
 		return decorate(records);
 	}
 
-	public static MContact getById(Id contactId) {
-		return getById(new Set<Id> { contactId })[0];
-	}
-
-	public static List<MContact> getByEmail(String email) {
-		MContact example = new MContact();
-		example.email = email;
-
-		List<SObject> records = Database.query(
-			new RumbleQuery()
-				.filterBy(example)
-				.toSOQL()
-		);
-		return decorate(records);
+	public static M<%= record.class_name %> getById(Id recordId) {
+		return getById(new Set<Id> { recordId })[0];
 	}
 
 	// --------------
