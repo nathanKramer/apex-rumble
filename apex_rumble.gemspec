@@ -9,9 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Nathan Kramer"]
   spec.email         = ["nathan.l.kramer@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "An abstraction between your apex and your schema, to help you write better apex"
+  spec.homepage      = "https://www.github.com/nathanKramer/apex_rumble"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
