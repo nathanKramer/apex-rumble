@@ -14,10 +14,10 @@ class ApexClass
     "#{name}.cls"
   end
 
-  def write
+  def write(directory)
     class_meta = "#{ApexRumble.root}/lib/apex_rumble/apex_src/Generic.cls-meta.xml"
-    File.write("#{ApexRumble.output_dir}/classes/#{self.class_name}", @content)
-    FileUtils.cp class_meta, "#{ApexRumble.output_dir}/classes/#{@name}.cls-meta.xml"
+    File.write("#{directory}/classes/#{self.class_name}", @content)
+    FileUtils.cp class_meta, "#{directory}/classes/#{@name}.cls-meta.xml"
   end
 
 end
