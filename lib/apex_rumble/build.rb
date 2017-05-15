@@ -62,7 +62,7 @@ module ApexRumble
       }
 
       apex_classes.each do |apex_class|
-        apex_class.write
+        apex_class.write @output_dir
       end
 
       package_xml_template = IO.read("#{ApexRumble.source_dir}/package.xml.erb")

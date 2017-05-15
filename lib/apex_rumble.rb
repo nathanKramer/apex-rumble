@@ -19,9 +19,4 @@ module ApexRumble
   def self.output_dir
     "#{ApexRumble.root}/apex_bin"
   end
-
-  def self.build
-    rumble_build = Build.new('src/objects', ApexRumble.output_dir)
-    rumble_build.run
-  end
 end
