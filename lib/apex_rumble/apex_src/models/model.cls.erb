@@ -10,14 +10,14 @@ public with sharing class M<%= record.class_name %> extends Rumble<%= record.cla
 		super();
 	}
 
-	public M<%= record.class_name %>(SObject c) {
-		super(c);
+	public M<%= record.class_name %>(SObject record) {
+		super(record);
 	}
 
 	public static List<M<%= record.class_name %>> decorate(List<SObject> records) {
 		List<M<%= record.class_name %>> m<%= record.class_name %>s = new List<M<%= record.class_name %>>();
-		for (SObject c : records) {
-			m<%= record.class_name %>s.add(new M<%= record.class_name %>(c));
+		for (SObject record : records) {
+			m<%= record.class_name %>s.add(new M<%= record.class_name %>(record));
 		}
 		return m<%= record.class_name %>s;
 	}
