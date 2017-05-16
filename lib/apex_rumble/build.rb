@@ -5,11 +5,31 @@ require "apex_rumble/metadata/sobject"
 require "apex_rumble/metadata/custom_field"
 module ApexRumble
 
+  DEFAULT_SCHEMA_DIR = './src/objects'
+  DEFAULT_OUTPUT_DIR = './apex_bin'
+
   class Build
 
     def initialize(schema_dir, output_dir)
       @schema_dir = schema_dir
       @output_dir = output_dir
+      self.validate
+    end
+
+    def validate
+      if !@schema_dir
+        @schema_dir = DEFAULT_SCHEMA_DIR
+        warn 'No salesforce object metadata directory provided. Assuming ' + @schema_dir
+      end
+
+      unless File.directory?(@schema_dir)
+        raise "Directory #{@schema_dir} is not present"
+      end
+
+      if !@output_dir
+        @output_dir = DEFAULT_OUTPUT_DIR
+        warn 'No output directory provided. Assuming ' + @output_dir
+      end
     end
 
     def records #@TODO: Parse from the schema_dir argument (assuming *.object XML metadata for now)

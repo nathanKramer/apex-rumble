@@ -1,0 +1,23 @@
+
+Help: build
+
+Builds the rumble library based on your schema
+
+Usage:
+
+    >rumble build OBJECTS_DIR OUTPUT_DIR
+
+    For example:
+    >rumble build src/objects apex_bin
+
+Options:
+
+    OBJECTS_DIR
+
+        Defaults to src/objects
+        This is the directory that contains your salesforce object metadata
+
+    OUTPUT_DIR
+
+        Defaults to ./apex_bin
+        This is the directory where your generated apex code will end up

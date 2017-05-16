@@ -2,92 +2,13 @@
 
 require "bundler/setup"
 require "apex_rumble"
+require "pathname"
 
-if ARGV[0] == 'help' || !ARGV[0]
-
-  if !ARGV[1]
-    puts <<-HELP
-
-      Welcome to rumble!
-      ------------------
-
-      Commands:
-      - build
-      - help
-
-      Apex Rumble is an apex library.
-      It is primary a model layer, and database interaction layer for your apex.
-      Rumble lets you query for, and act on SObjects, with apex classes you control, and without referencing actual API names.
-
-      ## How Does It Work?
-
-      At the core is RumbleModels. These can be thought of as extensions of the SObject class.
-        NB: In reality, they extend a virtual class called `RumbleModel`, which has a private SObject,
-        and implements the SObject's methods by redirecting to the SObject.
-
-      For each object you wish, you will recieve a generated model class, and some basic database selector methods.
-      Models have a property for each field that you care about, and can be quieried for without worrying about API names of objects or fields.
-
-      The rumble code never references API names in live code, which means you are more empowered to refactor your schema.
-
-      ```
-      RumbleModel <-- Base object for Rumble Models!
-      ├─ RumbleAccount <-- Generated from your schema. Don't touch!
-      │  └─ MAccount <-- Generated once only. Your model to play with!
-      ├─ RumbleAsset
-      |  └─ MAsset
-      ├─ RumbleContact
-      |  └─ MContact
-      └─ RumbleProject
-      |  └─ MProject
-      ```
-
-      To learn more about a command, type `rumble help X`, for instance, `rumble help build`
-
-    HELP
-  elsif ARGV[1] == 'build'
-    puts <<-BUILD
-
-      Builds the rumble library based on your schema
-
-      Usage:
-        >rumble build OBJECTS_DIR OUTPUT_DIR
-
-        For example:
-        >rumble build src/objects apex_bin
-
-      OBJECTS_DIR
-
-        Defaults to src/objects
-        This is the directory that contains your salesforce object metadata
-
-      OUTPUT_DIR
-
-        Defaults to ./apex_bin
-        This is the directory where your generated apex code will end up
-
-    BUILD
-  end
-elsif ARGV[0] == 'build'
-
-  schema_dir = ARGV[1]
-  output_dir = ARGV[2]
-
-  if !schema_dir
-    schema_dir = './src/objects'
-    puts 'No salesforce object metadata directory provided. Assuming ' + schema_dir
-  end
-
-  unless File.directory?(schema_dir)
-    raise "Directory #{schema_dir} is not present"
-  end
-
-  if !output_dir
-    output_dir = './apex_bin'
-    puts 'No output directory provided. Assuming ' + output_dir
-  end
-
+if ARGV.shift == 'build'
+  schema_dir, output_dir = ARGV
   rumble_build = ApexRumble::Build.new(schema_dir, output_dir)
   rumble_build.run
-
+else
+  puts ApexRumble::HelpCommand.for(ARGV.first)
 end
+

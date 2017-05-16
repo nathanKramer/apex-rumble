@@ -1,5 +1,6 @@
 require "apex_rumble/version"
 require "apex_rumble/build"
+require "apex_rumble/help_command"
 
 class String
   def uncapitalize
@@ -14,9 +15,5 @@ module ApexRumble
 
   def self.source_dir
     "#{ApexRumble.root}/lib/apex_rumble/apex_src"
-  end
-
-  def self.output_dir
-    "#{ApexRumble.root}/apex_bin"
   end
 end
