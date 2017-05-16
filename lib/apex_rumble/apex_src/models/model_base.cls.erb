@@ -27,8 +27,7 @@ public virtual with sharing class Rumble<%= record.class_name %> extends RumbleM
 		set {
 			<%= "this.put('#{ field.name }', value);" %>
 		}<% else %>
-		private set;
-<% end %>
+		private set;<% end %>
 	}
 <% end %>
 }

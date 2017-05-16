@@ -2,7 +2,6 @@
 
 require "bundler/setup"
 require "apex_rumble"
-require "pathname"
 
 if ARGV.shift == 'build'
   schema_dir, output_dir = ARGV

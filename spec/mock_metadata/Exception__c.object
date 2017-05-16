@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Account__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>The Account related with this error</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>Errors</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Context__c</fullName>
+        <description>Manually entered summary of the context of this issue, and how severe it is etc.
+This field should be populated after the fact by a developer with domain knowledge</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field should be populated after the fact by a developer with domain knowledge</inlineHelpText>
+        <label>Context</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Label__c</fullName>
+        <externalId>false</externalId>
+        <label>Label</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Resolved</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>To be fixed</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Unimportant</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>High Priority</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Low Priority</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Should fix if possible</fullName>
+                    <default>false</default>
+                </value>
+                <value>
+                    <fullName>Must fix if possible</fullName>
+                    <default>false</default>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>MostRecentOccurrenceDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Most Recent Occurrence Date</label>
+        <summarizedField>Occurrence__c.OccurrenceDate__c</summarizedField>
+        <summaryForeignKey>Occurrence__c.Exception__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Notes__c</fullName>
+        <description>A space to store any general notes about this exception</description>
+        <externalId>false</externalId>
+        <label>Notes</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Occurrences__c</fullName>
+        <description>Number of occurrences</description>
+        <externalId>false</externalId>
+        <label>Occurrences</label>
+        <summaryForeignKey>Occurrence__c.Exception__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>UniqueName__c</fullName>
+        <description>A unique name for this problem, used to match occurrences to the problem</description>
+        <externalId>true</externalId>
+        <label>Unique Name</label>
+        <length>128</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>

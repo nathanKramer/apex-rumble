@@ -34,14 +34,29 @@ module ApexRumble
 
     def records #@TODO: Parse from the schema_dir argument (assuming *.object XML metadata for now)
       [
-        ApexRumble::SObject.new('Contact', [
+        ApexRumble::SObject.new('Exception__c', [
           CustomField.new('Id', 'Id', true),
           CustomField.new('Name', 'String', true),
-          CustomField.new('Email', 'String', true)
+          CustomField.new('Account__c', 'Id', true),
+          CustomField.new('Context__c', 'String', true),
+          CustomField.new('Label__c', 'String', true),
+          CustomField.new('MostRecentOccurrenceDate__c', 'DateTime', false),
+          CustomField.new('Notes__c', 'String', true),
+          CustomField.new('Occurrences__c', 'Decimal', false),
+          CustomField.new('UniqueName__c', 'String', true)
         ]),
-        ApexRumble::SObject.new('My_Custom_ObjectWith_Crappy_Naming__c', [
+        ApexRumble::SObject.new('Occurrence__c', [
           CustomField.new('Id', 'Id', true),
-          CustomField.new('My_Custom_Field__c', 'String', true)
+          CustomField.new('Name', 'String', true),
+          CustomField.new('Cause__c', 'String', true),
+          CustomField.new('Exception__c', 'Id', true),
+          CustomField.new('JobId__c', 'String', true),
+          CustomField.new('Message__c', 'String', true),
+          CustomField.new('OccurrenceDate__c', 'DateTime', true),
+          CustomField.new('OrganizationId__c', 'String', true),
+          CustomField.new('Sandbox__c', 'Boolean', true),
+          CustomField.new('Stacktrace__c', 'String', true),
+          CustomField.new('UserId__c', 'String', true)
         ])
       ]
     end

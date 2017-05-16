@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	<types>
+		<members>RumbleDB</members>
+		<members>RumbleModel</members>
+		<members>RumbleQuery</members>
+		<members>Rumble</members>
+		<members>RumbleException</members>
+		<members>MException</members>
+		<members>RumbleOccurrence</members>
+		<members>MOccurrence</members>
+		<name>ApexClass</name>
+	</types>
+	<version>38.0</version>
+</Package>
