@@ -1,0 +1,37 @@
+
+Welcome to rumble!
+------------------
+
+Commands:
+- build
+- help
+
+Apex Rumble is an apex library.
+It is primary a model layer, and database interaction layer for your apex.
+Rumble lets you query for, and act on SObjects, with apex classes you control.
+
+## How Does It Work?
+
+At the core is RumbleModels. These can be thought of as extensions of the SObject class.
+Models have a property for each field that you care about, and can be quieried for without worrying about API names of objects or fields.
+The rumble code never references API names in live code, which means you are more empowered to refactor your schema.
+
+```
+RumbleModel <-- Base object for Rumble Models!
+├─ RumbleAccount <-- Generated from your schema. Don't touch!
+│  └─ MAccount <-- Generated once only. Your model to play with!
+├─ RumbleAsset
+|  └─ MAsset
+├─ RumbleContact
+|  └─ MContact
+└─ RumbleProject
+|  └─ MProject
+```
+
+RumbleModels are designed to be used wherever you currently use SObject instances.
+With this in mind, Rumble includes a RumbleDB class which implements the Database class with RumbleModels,
+Rumble also includes the RumbleQuery class, which is a SOQL building object which plays nicely with your field subscription.
+
+To learn more about a command, type `rumble help X`, for instance, `rumble help build`
+
+To learn more about the Rumble API, read the code. There isn't a whole lot of it. The power is in the generated models!
