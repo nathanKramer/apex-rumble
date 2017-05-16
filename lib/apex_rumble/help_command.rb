@@ -1,3 +1,4 @@
+require "pathname"
 module ApexRumble
   class HelpCommand
     HELP_DIR = Pathname(__dir__).join('help')
