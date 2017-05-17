@@ -65,21 +65,16 @@ public with sharing class Rumble {
 			'Account__c',
 			'Context__c',
 			'Label__c',
-			'MostRecentOccurrenceDate__c',
 			'Notes__c',
-			'Occurrences__c',
 			'UniqueName__c'
 		},
 		'Occurrence__c' => new List<String> {
 			'Id',
 			'Name',
-			'Cause__c',
-			'Exception__c',
 			'JobId__c',
 			'Message__c',
 			'OccurrenceDate__c',
 			'OrganizationId__c',
-			'Sandbox__c',
 			'Stacktrace__c',
 			'UserId__c'
 		}
