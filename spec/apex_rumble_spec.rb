@@ -13,7 +13,7 @@ describe ApexRumble do
 
   describe ApexRumble::Build do
     it "generates code that matches our specifications exactly" do
-      build = ApexRumble::Build.new(SCHEMA_DIR, OUTPUT_DIR)
+      build = ApexRumble::Build.new(schema_dir: SCHEMA_DIR, output_dir: OUTPUT_DIR)
       build.run
 
       # Check that the two directories _look_ the same in terms of folder names and file names.

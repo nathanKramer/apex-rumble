@@ -21,8 +21,7 @@ module ApexRumble
 
     def records
       records = []
-      object_files = Dir.glob("#{@schema_dir}/*.object")
-      object_files.each do |object_file|
+      Dir.glob("#{@schema_dir}/*.object").each do |object_file|
         object_name = File.basename(object_file, '.object')
         fields = []
 
@@ -37,7 +36,7 @@ module ApexRumble
           writeable = field.css('formula').empty? || field.css('summarizedField').empty? || false
 
           salesforce_type = field.css('type').first.content
-          apex_type = TYPE_MAP[salesforce_type.to_sym]
+          apex_type = TYPE_MAP.fetch(salesforce_type.to_sym, 'Object')
 
           if apex_type
             fields.push(
@@ -54,6 +53,10 @@ module ApexRumble
           object_name,
           fields
         )
+      end
+
+      if records.empty?
+        raise "No records generated from #{@schema_dir}. Check that you have valid object metadata there."
       end
       records
     end

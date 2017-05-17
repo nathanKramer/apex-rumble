@@ -65,12 +65,30 @@ public virtual with sharing class RumbleException extends RumbleModel {
 		}
 	}
 
+	public Object mostRecentOccurrenceDate {
+		get {
+			return (Object) this.get('MostRecentOccurrenceDate__c');
+		}
+		set {
+			this.put('MostRecentOccurrenceDate__c', value);
+		}
+	}
+
 	public String notes {
 		get {
 			return (String) this.get('Notes__c');
 		}
 		set {
 			this.put('Notes__c', value);
+		}
+	}
+
+	public Object occurrences {
+		get {
+			return (Object) this.get('Occurrences__c');
+		}
+		set {
+			this.put('Occurrences__c', value);
 		}
 	}
 

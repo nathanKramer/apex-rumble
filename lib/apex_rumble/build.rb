@@ -1,8 +1,6 @@
 require "erb"
 require "fileutils"
 require "apex_rumble/metadata/apex_class"
-require "apex_rumble/metadata/sobject"
-require "apex_rumble/metadata/custom_field"
 require "apex_rumble/metadata/schema_reader"
 module ApexRumble
 
@@ -11,10 +9,9 @@ module ApexRumble
 
   class Build
 
-    def initialize(schema_dir, output_dir)
-      @schema_dir = schema_dir
-      @output_dir = output_dir
-      validate
+    def initialize(schema_dir: nil, output_dir: nil)
+      @schema_dir = schema_dir || DEFAULT_SCHEMA_DIR
+      @output_dir = output_dir || DEFAULT_OUTPUT_DIR
     end
 
     def run
@@ -68,23 +65,6 @@ module ApexRumble
       schema_reader = SchemaReader.new(@schema_dir)
       schema_reader.records
     end
-
-    def validate
-      if !@schema_dir
-        @schema_dir = DEFAULT_SCHEMA_DIR
-        warn 'No salesforce object metadata directory provided. Assuming ' + @schema_dir
-      end
-
-      unless File.directory?(@schema_dir)
-        raise "Directory #{@schema_dir} is not present"
-      end
-
-      if !@output_dir
-        @output_dir = DEFAULT_OUTPUT_DIR
-        warn 'No output directory provided. Assuming ' + @output_dir
-      end
-    end
-
   end
 
 end
