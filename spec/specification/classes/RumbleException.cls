@@ -65,13 +65,6 @@ public virtual with sharing class RumbleException extends RumbleModel {
 		}
 	}
 
-	public DateTime mostRecentOccurrenceDate {
-		get {
-			return (DateTime) this.get('MostRecentOccurrenceDate__c');
-		}
-		private set;
-	}
-
 	public String notes {
 		get {
 			return (String) this.get('Notes__c');
@@ -95,6 +88,13 @@ public virtual with sharing class RumbleException extends RumbleModel {
 		set {
 			this.put('UniqueName__c', value);
 		}
+	}
+
+	public DateTime mostRecentOccurrenceDate {
+		get {
+			return (DateTime) this.get('MostRecentOccurrenceDate__c');
+		}
+		private set;
 	}
 
 }

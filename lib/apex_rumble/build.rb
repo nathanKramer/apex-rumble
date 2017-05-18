@@ -18,6 +18,9 @@ module ApexRumble
       # hard code some sobjects for. In the future these should be worked out in an intelligent fashion
       apex_classes = []
       FileUtils::mkdir_p "#{@output_dir}/classes"
+
+      records = SchemaReader.new(@schema_dir).records
+
       static_classes = Dir.glob("#{ApexRumble.source_dir}/api/*.cls")
       static_classes.each { |file_name|
         content = IO.read(file_name)
@@ -57,13 +60,6 @@ module ApexRumble
       compiler = ERB.new(package_xml_template)
       result = compiler.result(binding)
       File.write("#{@output_dir}/package.xml", result)
-    end
-
-    private
-
-    def records #@TODO: Parse from the schema_dir argument (assuming *.object XML metadata for now)
-      schema_reader = SchemaReader.new(@schema_dir)
-      schema_reader.records
     end
   end
 
