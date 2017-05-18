@@ -38,18 +38,18 @@ public virtual with sharing class RumbleOccurrence extends RumbleModel {
 		}
 	}
 
-	public Object cause {
+	public String cause {
 		get {
-			return (Object) this.get('Cause__c');
+			return (String) this.get('Cause__c');
 		}
 		set {
 			this.put('Cause__c', value);
 		}
 	}
 
-	public Object exception {
+	public Id exception {
 		get {
-			return (Object) this.get('Exception__c');
+			return (Id) this.get('Exception__c');
 		}
 		set {
 			this.put('Exception__c', value);
@@ -92,9 +92,9 @@ public virtual with sharing class RumbleOccurrence extends RumbleModel {
 		}
 	}
 
-	public Object sandbox {
+	public Boolean sandbox {
 		get {
-			return (Object) this.get('Sandbox__c');
+			return (Boolean) this.get('Sandbox__c');
 		}
 		set {
 			this.put('Sandbox__c', value);
