@@ -4,7 +4,7 @@ require "apex_rumble/metadata/apex_class"
 require "apex_rumble/metadata/schema_reader"
 module ApexRumble
 
-  DEFAULT_SCHEMA_DIR = './src/objects'
+  DEFAULT_SCHEMA_DIR = './schema'
   DEFAULT_OUTPUT_DIR = './apex_bin'
 
   class Build
@@ -15,7 +15,6 @@ module ApexRumble
     end
 
     def run
-      # hard code some sobjects for. In the future these should be worked out in an intelligent fashion
       apex_classes = []
       FileUtils::mkdir_p "#{@output_dir}/classes"
 
@@ -33,6 +32,7 @@ module ApexRumble
         class_name = File.basename(file_name, '.cls.erb')
 
         compiler = ERB.new(template)
+        puts file_name
         content = compiler.result(binding)
         apex_classes.push(ApexClass.new(class_name, content))
       }

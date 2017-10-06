@@ -6,10 +6,11 @@ module ApexRumble
     attr_reader :fields
     attr_reader :api_name
 
-    def initialize(type, fields)
-      @api_name = type
-      @class_name = type.gsub('__c', '').gsub('_', '')
-      @fields = fields
+    def initialize(description)
+      @api_name = description['name']
+      @class_name = @api_name.gsub('__c', '').gsub('_', '')
+      @fields = description['fields']
+      @description = description
     end
   end
 

@@ -24,62 +24,80 @@ public virtual with sharing class RumbleOccurrence extends RumbleModel {
 		get {
 			return (Id) this.get('Id');
 		}
-		set {
-			this.put('Id', value);
+		private set;
+	}
+
+	public Boolean isDeleted {
+		get {
+			return (Boolean) this.get('IsDeleted');
 		}
+		private set;
 	}
 
 	public String name {
 		get {
 			return (String) this.get('Name');
 		}
-		set {
-			this.put('Name', value);
-		}
+		private set;
 	}
 
-	public String cause {
+	public Datetime createdDate {
 		get {
-			return (String) this.get('Cause__c');
+			return (Datetime) this.get('CreatedDate');
 		}
-		set {
-			this.put('Cause__c', value);
+		private set;
+	}
+
+	public Id createdById {
+		get {
+			return (Id) this.get('CreatedById');
 		}
+		private set;
+	}
+
+	public Datetime lastModifiedDate {
+		get {
+			return (Datetime) this.get('LastModifiedDate');
+		}
+		private set;
+	}
+
+	public Id lastModifiedById {
+		get {
+			return (Id) this.get('LastModifiedById');
+		}
+		private set;
+	}
+
+	public Datetime systemModstamp {
+		get {
+			return (Datetime) this.get('SystemModstamp');
+		}
+		private set;
 	}
 
 	public Id exception {
 		get {
 			return (Id) this.get('Exception__c');
 		}
-		set {
-			this.put('Exception__c', value);
-		}
+		private set;
 	}
 
-	public String jobId {
+	public Datetime occurrenceDate {
 		get {
-			return (String) this.get('JobId__c');
-		}
-		set {
-			this.put('JobId__c', value);
-		}
-	}
-
-	public String message {
-		get {
-			return (String) this.get('Message__c');
-		}
-		set {
-			this.put('Message__c', value);
-		}
-	}
-
-	public DateTime occurrenceDate {
-		get {
-			return (DateTime) this.get('OccurrenceDate__c');
+			return (Datetime) this.get('OccurrenceDate__c');
 		}
 		set {
 			this.put('OccurrenceDate__c', value);
+		}
+	}
+
+	public String userId {
+		get {
+			return (String) this.get('UserId__c');
+		}
+		set {
+			this.put('UserId__c', value);
 		}
 	}
 
@@ -92,6 +110,33 @@ public virtual with sharing class RumbleOccurrence extends RumbleModel {
 		}
 	}
 
+	public Textarea message {
+		get {
+			return (Textarea) this.get('Message__c');
+		}
+		set {
+			this.put('Message__c', value);
+		}
+	}
+
+	public Textarea stacktrace {
+		get {
+			return (Textarea) this.get('Stacktrace__c');
+		}
+		set {
+			this.put('Stacktrace__c', value);
+		}
+	}
+
+	public Textarea cause {
+		get {
+			return (Textarea) this.get('Cause__c');
+		}
+		set {
+			this.put('Cause__c', value);
+		}
+	}
+
 	public Boolean sandbox {
 		get {
 			return (Boolean) this.get('Sandbox__c');
@@ -101,21 +146,12 @@ public virtual with sharing class RumbleOccurrence extends RumbleModel {
 		}
 	}
 
-	public String stacktrace {
+	public String jobId {
 		get {
-			return (String) this.get('Stacktrace__c');
+			return (String) this.get('JobId__c');
 		}
 		set {
-			this.put('Stacktrace__c', value);
-		}
-	}
-
-	public String userId {
-		get {
-			return (String) this.get('UserId__c');
-		}
-		set {
-			this.put('UserId__c', value);
+			this.put('JobId__c', value);
 		}
 	}
 

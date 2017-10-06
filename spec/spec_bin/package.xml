@@ -9,6 +9,8 @@
 		<members>MException</members>
 		<members>RumbleOccurrence</members>
 		<members>MOccurrence</members>
+		<members>RumbleVote</members>
+		<members>MVote</members>
 		<name>ApexClass</name>
 	</types>
 	<version>38.0</version>

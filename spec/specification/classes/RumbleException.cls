@@ -24,18 +24,65 @@ public virtual with sharing class RumbleException extends RumbleModel {
 		get {
 			return (Id) this.get('Id');
 		}
-		set {
-			this.put('Id', value);
+		private set;
+	}
+
+	public Id ownerId {
+		get {
+			return (Id) this.get('OwnerId');
 		}
+		set {
+			this.put('OwnerId', value);
+		}
+	}
+
+	public Boolean isDeleted {
+		get {
+			return (Boolean) this.get('IsDeleted');
+		}
+		private set;
 	}
 
 	public String name {
 		get {
 			return (String) this.get('Name');
 		}
-		set {
-			this.put('Name', value);
+		private set;
+	}
+
+	public Datetime createdDate {
+		get {
+			return (Datetime) this.get('CreatedDate');
 		}
+		private set;
+	}
+
+	public Id createdById {
+		get {
+			return (Id) this.get('CreatedById');
+		}
+		private set;
+	}
+
+	public Datetime lastModifiedDate {
+		get {
+			return (Datetime) this.get('LastModifiedDate');
+		}
+		private set;
+	}
+
+	public Id lastModifiedById {
+		get {
+			return (Id) this.get('LastModifiedById');
+		}
+		private set;
+	}
+
+	public Datetime systemModstamp {
+		get {
+			return (Datetime) this.get('SystemModstamp');
+		}
+		private set;
 	}
 
 	public Id account {
@@ -47,9 +94,9 @@ public virtual with sharing class RumbleException extends RumbleModel {
 		}
 	}
 
-	public String context {
+	public Textarea context {
 		get {
-			return (String) this.get('Context__c');
+			return (Textarea) this.get('Context__c');
 		}
 		set {
 			this.put('Context__c', value);
@@ -65,22 +112,6 @@ public virtual with sharing class RumbleException extends RumbleModel {
 		}
 	}
 
-	public String notes {
-		get {
-			return (String) this.get('Notes__c');
-		}
-		set {
-			this.put('Notes__c', value);
-		}
-	}
-
-	public Decimal occurrences {
-		get {
-			return (Decimal) this.get('Occurrences__c');
-		}
-		private set;
-	}
-
 	public String uniqueName {
 		get {
 			return (String) this.get('UniqueName__c');
@@ -90,11 +121,27 @@ public virtual with sharing class RumbleException extends RumbleModel {
 		}
 	}
 
-	public DateTime mostRecentOccurrenceDate {
+	public Datetime mostRecentOccurrenceDate {
 		get {
-			return (DateTime) this.get('MostRecentOccurrenceDate__c');
+			return (Datetime) this.get('MostRecentOccurrenceDate__c');
 		}
 		private set;
+	}
+
+	public Double occurrences {
+		get {
+			return (Double) this.get('Occurrences__c');
+		}
+		private set;
+	}
+
+	public Textarea notes {
+		get {
+			return (Textarea) this.get('Notes__c');
+		}
+		set {
+			this.put('Notes__c', value);
+		}
 	}
 
 }
