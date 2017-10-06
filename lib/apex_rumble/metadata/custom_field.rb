@@ -6,11 +6,12 @@ module ApexRumble
     attr_reader :property_name
     attr_reader :type
 
-    def initialize(field_name, type, writeable)
-      @name = field_name
-      @property_name = field_name.uncapitalize.gsub('__c', '').gsub('_', '')
-      @type = type
-      @writeable = writeable
+    def initialize(description)
+      @name = description['name']
+      @property_name = @name.uncapitalize.gsub('__c', '').gsub('_', '')
+      @type = description['apex_type']
+      @writeable = description['updateable']
+      @description = description
     end
 
     def writeable?

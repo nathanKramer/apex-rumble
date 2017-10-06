@@ -1,0 +1,6 @@
+models:
+  custom:
+    - Exception__c
+    - Occurrence__c
+  standard:
+    - Vote

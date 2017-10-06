@@ -61,27 +61,51 @@ public with sharing class Rumble {
 	public static final Map<String, List<String>> FIELD_SUBSCRIPTION = new Map<String, List<String>> {
 		'Exception__c' => new List<String> {
 			'Id',
+			'OwnerId',
+			'IsDeleted',
 			'Name',
+			'CreatedDate',
+			'CreatedById',
+			'LastModifiedDate',
+			'LastModifiedById',
+			'SystemModstamp',
 			'Account__c',
 			'Context__c',
 			'Label__c',
-			'Notes__c',
-			'Occurrences__c',
 			'UniqueName__c',
-			'MostRecentOccurrenceDate__c'
+			'MostRecentOccurrenceDate__c',
+			'Occurrences__c',
+			'Notes__c'
 		},
 		'Occurrence__c' => new List<String> {
 			'Id',
+			'IsDeleted',
 			'Name',
-			'Cause__c',
+			'CreatedDate',
+			'CreatedById',
+			'LastModifiedDate',
+			'LastModifiedById',
+			'SystemModstamp',
 			'Exception__c',
-			'JobId__c',
-			'Message__c',
 			'OccurrenceDate__c',
+			'UserId__c',
 			'OrganizationId__c',
-			'Sandbox__c',
+			'Message__c',
 			'Stacktrace__c',
-			'UserId__c'
+			'Cause__c',
+			'Sandbox__c',
+			'JobId__c'
+		},
+		'Vote' => new List<String> {
+			'Id',
+			'IsDeleted',
+			'ParentId',
+			'Type',
+			'CreatedDate',
+			'CreatedById',
+			'LastModifiedDate',
+			'LastModifiedById',
+			'SystemModstamp'
 		}
 	};
 }
