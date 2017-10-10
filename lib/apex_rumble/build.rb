@@ -32,7 +32,6 @@ module ApexRumble
         class_name = File.basename(file_name, '.cls.erb')
 
         compiler = ERB.new(template)
-        puts file_name
         content = compiler.result(binding)
         apex_classes.push(ApexClass.new(class_name, content))
       }
