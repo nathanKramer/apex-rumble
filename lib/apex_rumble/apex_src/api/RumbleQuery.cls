@@ -143,6 +143,7 @@ public with sharing class RumbleQuery { // First cut uses strings only
 			queryComponents.add(String.join(filterTokens, ' AND '));
 		}
 
+		orderTokens = new List<String>();
 		for (OrderClause orderClause : this.orderClauses) {
 			orderTokens.add(orderClause.toString());
 		}

@@ -7,8 +7,15 @@ module ApexRumble
   class SchemaReader
 
     TYPE_MAP = {
+      'currency' => 'Double',
+      'email' => 'String',
       'reference' => 'Id',
-      'picklist' => 'String'
+      'int' => 'Integer',
+      'phone' => 'String',
+      'percent' => 'Decimal',
+      'picklist' => 'String',
+      'textarea' => 'String',
+      'url' => 'String'
     }
 
     def initialize(schema_dir)
