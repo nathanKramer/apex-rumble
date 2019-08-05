@@ -94,9 +94,9 @@ public virtual with sharing class RumbleException extends RumbleModel {
 		}
 	}
 
-	public Textarea context {
+	public String context {
 		get {
-			return (Textarea) this.get('Context__c');
+			return (String) this.get('Context__c');
 		}
 		set {
 			this.put('Context__c', value);
@@ -135,9 +135,9 @@ public virtual with sharing class RumbleException extends RumbleModel {
 		private set;
 	}
 
-	public Textarea notes {
+	public String notes {
 		get {
-			return (Textarea) this.get('Notes__c');
+			return (String) this.get('Notes__c');
 		}
 		set {
 			this.put('Notes__c', value);

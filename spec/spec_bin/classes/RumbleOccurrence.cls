@@ -110,27 +110,27 @@ public virtual with sharing class RumbleOccurrence extends RumbleModel {
 		}
 	}
 
-	public Textarea message {
+	public String message {
 		get {
-			return (Textarea) this.get('Message__c');
+			return (String) this.get('Message__c');
 		}
 		set {
 			this.put('Message__c', value);
 		}
 	}
 
-	public Textarea stacktrace {
+	public String stacktrace {
 		get {
-			return (Textarea) this.get('Stacktrace__c');
+			return (String) this.get('Stacktrace__c');
 		}
 		set {
 			this.put('Stacktrace__c', value);
 		}
 	}
 
-	public Textarea cause {
+	public String cause {
 		get {
-			return (Textarea) this.get('Cause__c');
+			return (String) this.get('Cause__c');
 		}
 		set {
 			this.put('Cause__c', value);
